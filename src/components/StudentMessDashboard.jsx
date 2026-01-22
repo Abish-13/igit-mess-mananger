@@ -9,14 +9,14 @@ const StudentMessDashboard = ({ studentId }) => {
 
   useEffect(() => {
     // Fetch Bill
-    fetch(`http://localhost:5000/api/meals/bill/${studentId}`)
+    fetch(`https://igit-mess-mananger.onrender.com/api/meals/bill/${studentId}`)
       .then(res => res.json())
       .then(data => setBill(data));
   }, [studentId]);
 
   const handleStopSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch('http://localhost:5000/api/meals/stop', {
+    const res = await fetch('https://igit-mess-mananger.onrender.com/api/meals/stop', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ studentId, ...stopData })
@@ -24,7 +24,7 @@ const StudentMessDashboard = ({ studentId }) => {
     if(res.ok) {
       alert("Meals stopped successfully!");
       // Refresh bill
-      fetch(`http://localhost:5000/api/meals/bill/${studentId}`)
+      fetch(`https://igit-mess-mananger.onrender.com/api/meals/bill/${studentId}`)
         .then(res => res.json())
         .then(data => setBill(data));
     } else {

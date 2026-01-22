@@ -9,13 +9,13 @@ const AdminAllocationDashboard = ({ hostelId }) => {
   }, [hostelId]);
 
   const fetchStudents = () => {
-    fetch(`http://localhost:5000/api/auth/students/${hostelId}`)
+    fetch(`https://igit-mess-mananger.onrender.com/api/auth/students/${hostelId}`)
       .then(res => res.json())
       .then(data => setStudents(data));
   };
 
   const triggerAction = async (endpoint, body = {}) => {
-    const res = await fetch(`http://localhost:5000/api/rooms/${endpoint}`, {
+    const res = await fetch(`https://igit-mess-mananger.onrender.com/api/rooms/${endpoint}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ hostelId, ...body })
@@ -26,7 +26,7 @@ const AdminAllocationDashboard = ({ hostelId }) => {
 
   const deleteStudent = async (id) => {
     if (window.confirm("Delete this student?")) {
-      await fetch(`http://localhost:5000/api/auth/user/${id}`, { method: 'DELETE' });
+      await fetch(`https://igit-mess-mananger.onrender.com/api/auth/user/${id}`, { method: 'DELETE' });
       fetchStudents();
     }
   };

@@ -14,7 +14,7 @@ const StudentSignup = () => {
   useEffect(() => {
     const fetchHostels = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/auth/hostels');
+        const res = await fetch('https://igit-mess-mananger.onrender.com/api/auth/hostels');
         const data = await res.json();
         setHostels(data);
       } catch (err) {
@@ -41,7 +41,7 @@ const StudentSignup = () => {
     // API Call logic here (using fetch or axios)
     console.log("Submitting:", formData);
     
-    const response = await fetch('http://localhost:5000/api/auth/register-student', {
+    const response = await fetch('https://igit-mess-mananger.onrender.com/api/auth/register-student', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)

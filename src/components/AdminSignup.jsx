@@ -27,7 +27,7 @@ const AdminSignup = () => {
     e.preventDefault();
     const { name, userId, password, hostelName, totalRooms, bedPerRoom, breakfastPrice, lunchPrice, dinnerPrice, usualBreakfastPlates, usualLunchPlates, usualDinnerPlates } = formData;
 
-    const response = await fetch('http://localhost:5000/api/auth/register-admin', {
+    const response = await fetch('https://igit-mess-mananger.onrender.com/api/auth/register-admin', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

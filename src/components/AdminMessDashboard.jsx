@@ -6,7 +6,7 @@ const AdminMessDashboard = ({ hostelId }) => {
   const [usualPlatesCount, setUsualPlatesCount] = useState({ breakfast: 0, lunch: 0, dinner: 0 });
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/meals/admin-stats/${hostelId}`)
+    fetch(`https://igit-mess-mananger.onrender.com/api/meals/admin-stats/${hostelId}`)
       .then(res => res.json()).then(data => {
         setStats(data);
         setPrices(data.messPrices || { breakfast: 0, lunch: 0, dinner: 0 });
@@ -15,7 +15,7 @@ const AdminMessDashboard = ({ hostelId }) => {
   }, [hostelId]);
 
   const updateHostel = async () => {
-    const res = await fetch(`http://localhost:5000/api/meals/update-settings/${hostelId}`, {
+    const res = await fetch(`https://igit-mess-mananger.onrender.com/api/meals/update-settings/${hostelId}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ messPrices: prices, usualPlatesCount })
@@ -24,7 +24,7 @@ const AdminMessDashboard = ({ hostelId }) => {
   };
 
   const downloadCSV = () => {
-    window.open(`http://localhost:5000/api/meals/download-bills/${hostelId}`);
+    window.open(`https://igit-mess-mananger.onrender.com/api/meals/download-bills/${hostelId}`);
   };
 
   return (

@@ -7,7 +7,7 @@ const AdminInbox = () => {
   // Fetch Reports
   const fetchReports = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/reports/all', {
+      const res = await fetch('https://igit-mess-mananger.onrender.com/api/reports/all', {
         headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
       });
       if (res.ok) {
@@ -30,7 +30,7 @@ const AdminInbox = () => {
   // Mark as Resolved
   const resolveIssue = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/reports/resolve/${id}`, { 
+      const res = await fetch(`https://igit-mess-mananger.onrender.com/api/reports/resolve/${id}`, { 
         method: 'PATCH',
         headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
       });
@@ -47,7 +47,7 @@ const AdminInbox = () => {
   // Post Notice
   const handlePostNotice = async (e) => {
     e.preventDefault();
-    await fetch('http://localhost:5000/api/notices/post', {
+    await fetch('https://igit-mess-mananger.onrender.com/api/notices/post', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(notice)

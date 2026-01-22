@@ -6,7 +6,7 @@ const StudentDashboard = ({ studentId }) => {
 
   // Fetch Notices on Load
   useEffect(() => {
-    fetch('http://localhost:5000/api/notices/all')
+    fetch('https://igit-mess-mananger.onrender.com/api/notices/all')
       .then(res => res.json())
       .then(data => setNotices(data));
   }, []);
@@ -14,7 +14,7 @@ const StudentDashboard = ({ studentId }) => {
   const handleReportSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch('http://localhost:5000/api/reports/submit', {
+      const res = await fetch('https://igit-mess-mananger.onrender.com/api/reports/submit', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',

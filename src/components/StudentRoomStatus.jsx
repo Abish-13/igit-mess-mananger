@@ -6,14 +6,14 @@ const StudentRoomStatus = ({ user }) => {
 
   useEffect(() => {
     // Fetch current room status
-    fetch(`http://localhost:5000/api/auth/user/${user._id}`)
+    fetch(`https://igit-mess-mananger.onrender.com/api/auth/user/${user._id}`)
       .then(res => res.json())
       .then(data => setStatus(data.roomNumber));
   }, [user._id]);
 
   const handleApply = async (e) => {
     e.preventDefault();
-    const res = await fetch('http://localhost:5000/api/applications/apply', {
+    const res = await fetch('https://igit-mess-mananger.onrender.com/api/applications/apply', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ studentId: user._id, cgpa: parseFloat(cgpa) })
